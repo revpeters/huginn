@@ -1,0 +1,35 @@
+[b]chage[/b] - Configure password aging for users
+
+System defaults for password aging policies can be set in [b][grey85]/etc/login.defs[/b].[/grey85]
+
+[b]PASS_MAX_DAYS[/b] - sets the default maximum age of the password.
+[b]PASS_MIN_DAYS[/b] - sets the default minimum age of the password.
+[b]PASS_WARN_AGE[/b] - sets the default warning period of the password.
+
+Any change in the default password aging policies will be effective for new users only. Existing users will continue to use the old password aging
+settings rather than the new ones.
+
+[#5E81AC]chage[/#5E81AC] [#EBCB8B]-m[/#EBCB8B] [italic][#BF616A]0[/italic][/#BF616A] [#EBCB8B]-M[/#EBCB8B] [italic][#A3BE8C]90[/#A3BE8C][/italic] [#EBCB8B]-W[/#EBCB8B] [italic][#85adde]7[/#85adde][/italic] [#EBCB8B]-I[/#EBCB8B] [italic][#D08770]14[/#D08770][/italic] [#EBCB8B]-E[/#EBCB8B] [italic][#D08770]2019-08-05[/#D08770][/italic] [bold][#BF616A]user03[/bold][/#BF616A]
+
+Minimum age, maximum age, warning period, inactivity period, and expiration date
+chage -l user03
+Last password change                                    : Aug 11, 2021
+[#A3BE8C]Password expires                                        : Nov 09, 2021[#A3BE8C]
+[#B48EAD]Password inactive                                       : Nov 23, 2021[/#B48EAD]
+Account expires                                         : Aug 05, 2022
+[#BF616A]Minimum number of days between password change          : 0[/#BF616A]
+[#A3BE8C]Maximum number of days between password change          : 90[/#A3BE8C]
+[#85adde]Number of days of warning before password expires       : 7[/#85adde]
+
+[#5E81AC]chage[/#5E81AC] [#EBCB8B]-E[/#EBCB8B] [italic][#D08770]date[/#D08770][/italic] [bold][#BF616A]username[/#BF616A][/bold]
+  [#EBCB8B]-E, --expiredate[/#EBCB8B] [italic][#D08770]EXPIRE_DATE[/#D08770][/italic]     set account expiration date to [italic][#D08770]EXPIRE_DATE[/#D08770][/italic]
+
+[#5E81AC]chage[/#5E81AC] [#EBCB8B]-d[/#EBCB8B] [italic][#D08770]0[/#D08770][/italic] [bold][#BF616A]username[/#BF616A][/bold]
+  [#EBCB8B]-d, --lastday[/#EBCB8B] [italic][#D08770]LAST_DAY[/#D08770][/italic]           set date of last password change to [italic][#D08770]LAST_DAY[/#D08770][/italic]
+
+[#5E81AC]chage[/#5E81AC] [#EBCB8B]-M[/#EBCB8B] [italic][#D08770]number of days[/#D08770][/italic] [bold][#BF616A]username[/#BF616A][/bold]
+  [#EBCB8B]-M, --maxdays[/#EBCB8B] [italic][#D08770]MAX_DAYS[/#D08770][/italic]           set maximum number of days before password change to [italic][#D08770]MAX_DAYS[/#D08770][/italic]
+
+[#5E81AC]chage[/#5E81AC] [#EBCB8B]-l[/#EBCB8B] [bold][#BF616A]username[/#BF616A][/bold]
+  [#EBCB8B]-l, --list[/#EBCB8B] [italic][#D08770][/#D08770][/italic]                      show account aging information
+[#EBCB8B][/#EBCB8B] [italic][#D08770][/#D08770][/italic]  

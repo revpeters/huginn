@@ -1,0 +1,20 @@
+turing pi node list
+cm-node-01 192.168.1.3
+cm-node-02 192.168.1.11
+cm-node-03 192.168.1.7
+cm-node-04 192.168.1.10
+cm-node-05 192.168.1.14
+cm-node-06 192.168.1.13
+cm-node-07 192.168.1.12
+
+ssh-keygen;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.3;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.11;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.7;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.10;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.14;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.13;ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@192.168.1.12
+
+ssh-keygen -t rsa -b 4096 -C "jacob.peters@aol.com"
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub pirate@$each
+
+sudo apt update;sudo apt install vim -y;sudo vim /etc/cloud/cloud.cfg;sudo vim /etc/hosts;sudo hostnamectl set-hostname 
+
+wget -q --show-progress --https-only --timestamping "https://github.com/etcd-io/etcd/releases/download/v3.4.15/etcd-v3.4.15-linux-amd64.tar.gz";tar -xvf etcd-v3.4.15-linux-amd64.tar.gz;sudo mv etcd-v3.4.15-linux-amd64/etcd* /usr/local/bin/;sudo mkdir -p /etc/etcd /var/lib/etcd;sudo chmod 700 /var/lib/etcd;sudo cp ca.pem kubernetes-key.pem kubernetes.pem /etc/etcd/;INTERNAL_IP=$(curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/ip);ETCD_NAME=$(hostname -s)
+
+sudo systemctl daemon-reload;sudo systemctl enable etcd;sudo systemctl start etcd

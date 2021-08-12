@@ -1,0 +1,8 @@
+huginn.py
+setup.py
+Huginn.egg-info/PKG-INFO
+Huginn.egg-info/SOURCES.txt
+Huginn.egg-info/dependency_links.txt
+Huginn.egg-info/entry_points.txt
+Huginn.egg-info/requires.txt
+Huginn.egg-info/top_level.txt
